@@ -1,5 +1,5 @@
 *.suo
 *.user
-Backend/packages
-Backend/OrderFoodOnlineBackend/bin/**
-Backend/OrderFoodOnlineBackend/obj/**
+Backend/packages/
+Backend/OrderFoodOnlineBackend/[Bb]in/
+Backend/OrderFoodOnlineBackend/[Oo]bj/
