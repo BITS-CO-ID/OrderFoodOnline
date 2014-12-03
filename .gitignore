@@ -1,3 +1,4 @@
+*.suo
 Backend/packages
 Backend/FoodDeliveryBackend/bin
 Backend/FoodDeliveryBackend/obj
