@@ -1,5 +1,5 @@
 *.suo
 *.user
 Backend/packages
-Backend/FoodDeliveryBackend/bin
-Backend/FoodDeliveryBackend/obj
+Backend/OrderFoodOnlineBackend/bin/**
+Backend/OrderFoodOnlineBackend/obj/**
