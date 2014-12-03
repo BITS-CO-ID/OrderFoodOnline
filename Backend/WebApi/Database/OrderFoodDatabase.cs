@@ -55,6 +55,14 @@ namespace OrderFoodOnline.WebApi.Database
         //                                                                               Meal CRUD
         //-----------------------------------------------------------------------------------------
 
+        public Meal[] GetAllMeals()
+        {
+            using (var context = new OrderFoodContext())
+            {
+                return context.Meals.ToArray();
+            }
+        }
+
         public Meal[] GetMealsOfDeliveryService(int deliveryServiceId)
         {
             using (var context = new OrderFoodContext())
@@ -108,7 +116,7 @@ namespace OrderFoodOnline.WebApi.Database
 
         protected static T Read<T>(DbSet<T> dbSet, int id) where T : DbEntity
         {
-            return dbSet.First(e => e.Id == id);
+            return dbSet.FirstOrDefault(e => e.Id == id);
         }
 
         protected static void Update<T>(DbContext context, DbSet<T> dbSet, T entity) where T : DbEntity
