@@ -7,34 +7,35 @@ namespace OrderFoodOnline.WebApi.Controllers
 {
     public class DeliveryServiceController : ApiController
     {
-        // GET: api/DeliveryService
         public IEnumerable<DeliveryService> Get()
         {
             var db = new OrderFoodDatabase();
             return db.GetAllDeliveryServices();
         }
 
-        /*
-        // GET: api/DeliveryService/5
-        public string Get(int id)
+        internal DeliveryService Get(int id)
         {
-            return "value";
+            var db = new OrderFoodDatabase();
+            return db.GetDeliveryService(id);
         }
 
-        // POST: api/DeliveryService
-        public void Post([FromBody]string value)
+        internal DeliveryService Post([FromBody]DeliveryService deliveryService)
         {
+            var db = new OrderFoodDatabase();
+            return db.CreateDeliveryService(deliveryService);
         }
 
-        // PUT: api/DeliveryService/5
-        public void Put(int id, [FromBody]string value)
+        internal void Put(int id, [FromBody]DeliveryService deliveryService)
         {
+            var db = new OrderFoodDatabase();
+            deliveryService.Id = id;
+            db.UpdateDeliveryService(deliveryService);
         }
 
-        // DELETE: api/DeliveryService/5
-        public void Delete(int id)
+        internal void Delete(int id)
         {
+            var db = new OrderFoodDatabase();
+           db.DeleteDeliveryService(id);
         }
-         * */
     }
 }

@@ -117,12 +117,14 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DeliveryServiceController.cs" />
+    <Compile Include="Controllers\MealController.cs" />
     <Compile Include="Database\OrderFoodDatabase.cs" />
     <Compile Include="Database\OrderFoodContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\DbEntity.cs" />
     <Compile Include="Models\DeliveryService.cs" />
     <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\Order.cs" />

@@ -2,9 +2,8 @@
 
 namespace OrderFoodOnline.WebApi.Models
 {
-    public class Account
+    public class Account : DbEntity
     {
-        public int Id { get; set; }
         public string Email { get; set; }
         public decimal Balance { get; set; }
         public List<Order> Orders { get; set; }

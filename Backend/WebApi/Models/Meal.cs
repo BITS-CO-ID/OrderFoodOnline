@@ -1,10 +1,10 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrderFoodOnline.WebApi.Models
 {
-    public class Meal
+    public class Meal : DbEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public byte[] Picture { get; set; }
@@ -12,5 +12,9 @@ namespace OrderFoodOnline.WebApi.Models
         public string Size { get; set; }
         public string OrderCode { get; set; }
         public decimal Price { get; set; }
+        public DeliveryService DeliveryService { get; set; }
+
+        [ForeignKey("DeliveryService")]
+        public int DeliveryServiceId { get; set; }
     }
 }

@@ -2,9 +2,8 @@
 
 namespace OrderFoodOnline.WebApi.Models
 {
-    public class Order
+    public class Order : DbEntity
     {
-        public int Id { get; set; }
         public Meal Meal { get; set; }
         public DateTime Placed { get; set; }
         public DateTime Booked { get; set; }
