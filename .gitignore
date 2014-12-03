@@ -62,3 +62,4 @@ packages/
 
 #Test files
 *.testsettings
+Backend/WebApi/_bin_deployableAssemblies/
