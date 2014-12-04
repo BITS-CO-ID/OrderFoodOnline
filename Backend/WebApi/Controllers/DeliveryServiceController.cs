@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using OrderFoodOnline.WebApi.Database;
 using OrderFoodOnline.WebApi.Models;
@@ -26,17 +26,20 @@ namespace OrderFoodOnline.WebApi.Controllers
             return result;
         }
 
-        public DeliveryService Post(DeliveryService deliveryService)
+        public DeliveryService Post([FromBody]DeliveryService deliveryService)
         {
+            if (string.IsNullOrWhiteSpace(deliveryService.Name))
+            {
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.BadRequest, "DeliveryService is not valid. Name is missing."));
+            }
             var db = new OrderFoodDatabase();
             return db.CreateDeliveryService(deliveryService);
         }
 
-        public void Put(int id, DeliveryService deliveryService)
+        public DeliveryService Put(int id, [FromBody]DeliveryService deliveryService)
         {
             var db = new OrderFoodDatabase();
-            deliveryService.Id = id;
-            db.UpdateDeliveryService(deliveryService);
+            return db.UpdateDeliveryService(id, deliveryService);
         }
 
         public void Delete(int id)

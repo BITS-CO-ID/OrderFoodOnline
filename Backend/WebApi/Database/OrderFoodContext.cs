@@ -7,6 +7,8 @@ namespace OrderFoodOnline.WebApi.Database
     {
         public DbSet<DeliveryService> DeliveryServices { get; set; }
         public DbSet<Meal> Meals { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
         public OrderFoodContext()
             : base("OrderFoodDb")
