@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace OrderFoodOnline.WebApi.Models
 {
@@ -15,6 +16,8 @@ namespace OrderFoodOnline.WebApi.Models
 
         [ForeignKey("DeliveryService")]
         public int DeliveryServiceId { get; set; }
+
+        [IgnoreDataMember]
         public DeliveryService DeliveryService { get; set; }
     }
 }

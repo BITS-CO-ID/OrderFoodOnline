@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Web.Http;
+using System.Web.Mvc;
 using OrderFoodOnline.WebApi.Database;
 
 namespace OrderFoodOnline.WebApi
@@ -8,6 +9,7 @@ namespace OrderFoodOnline.WebApi
     {
         protected void Application_Start()
         {
+            AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             //System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderFoodContext, Configuration>());
             System.Data.Entity.Database.SetInitializer(new DropCreateDatabaseIfModelChanges<OrderFoodContext>());
