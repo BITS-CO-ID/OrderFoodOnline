@@ -9,10 +9,20 @@ namespace OrderFoodOnline.WebApi.Controllers
 {
     public class OrderController : ApiController
     {
-        public IEnumerable<Order> Get([FromUri] string accountId = null)
+        public IEnumerable<Order> Get()
         {
             var db = new OrderFoodDatabase();
-            return accountId != null ? db.GetOrdersOfAccount(int.Parse(accountId)) : db.GetAllOrders();
+            return db.GetAllOrders();
+        }
+
+        public IEnumerable<Order> Get([FromUri] string accountId)
+        {
+            if (string.IsNullOrWhiteSpace(accountId))
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            var db = new OrderFoodDatabase();
+            return db.GetOrdersOfAccount(int.Parse(accountId));
         }
 
         public Order Get(int id)
