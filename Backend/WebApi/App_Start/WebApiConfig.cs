@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using Newtonsoft.Json.Serialization;
+using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace OrderFoodOnline.WebApi
 {
@@ -14,7 +16,10 @@ namespace OrderFoodOnline.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }
