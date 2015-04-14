@@ -13,6 +13,7 @@ namespace OrderFoodOnline.WebApi
             GlobalConfiguration.Configure(WebApiConfig.Register);
             //System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<OrderFoodContext, Configuration>());
             System.Data.Entity.Database.SetInitializer(new DropCreateDatabaseIfModelChanges<OrderFoodContext>());
+            //System.Data.Entity.Database.SetInitializer(new DropCreateDatabaseAlways<OrderFoodContext>());
         }
     }
 }
